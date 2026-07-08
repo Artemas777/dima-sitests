@@ -126,9 +126,11 @@
 
   /* ------------------------------------------------------------------ */
   /* Subtle scroll parallax on the hero card stage                      */
+  /* Desktop (mouse) only — on touch devices this reads as the card     */
+  /* "scrolling on its own", so it's intentionally skipped there.       */
   /* ------------------------------------------------------------------ */
   const heroStage = document.getElementById('cardStage');
-  if (heroStage && !reduceMotion) {
+  if (heroStage && !reduceMotion && !isTouch) {
     let ticking = false;
     const applyParallax = () => {
       const y = window.scrollY;

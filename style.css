@@ -45,6 +45,7 @@
 html{
   scroll-behavior: smooth;
   overflow-x: hidden;
+  overscroll-behavior-x: none;
   width: 100%;
 }
 body{ margin:0; }
@@ -63,6 +64,7 @@ body{
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
   overflow-x: hidden;
+  overscroll-behavior-x: none;
   width: 100%;
   max-width: 100%;
 }
@@ -425,6 +427,7 @@ body{
 .card-stage{
   position: relative;
   width: min(400px, 88vw);
+  touch-action: pan-y;
 }
 .card-stage__ring{
   position: absolute;
