@@ -1,0 +1,102 @@
+/* ==========================================================================
+   PRODUCTS GRID
+   ========================================================================== */
+
+.products__grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1.1rem;
+}
+
+.pcard {
+  position: relative;
+  padding: var(--sp-md) var(--sp-sm) var(--sp-sm);
+  border-radius: var(--r-lg);
+  background: var(--color-elevated);
+  border: 1px solid var(--color-glass-border);
+  overflow: hidden;
+  transition: transform var(--dur-med) var(--ease-out-quart),
+    border-color var(--dur-med) var(--ease-out-quart),
+    box-shadow var(--dur-med) var(--ease-out-quart);
+}
+
+.pcard::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  background: radial-gradient(220px circle at 30% 0%, rgba(205, 167, 95, 0.16), transparent 60%);
+  transition: opacity var(--dur-med) var(--ease-out-quart);
+  pointer-events: none;
+}
+
+.pcard:hover {
+  transform: translateY(-6px);
+  border-color: var(--color-glass-border-strong);
+  box-shadow: var(--shadow-soft);
+}
+
+.pcard:hover::before {
+  opacity: 1;
+}
+
+.pcard--blue::before {
+  background: radial-gradient(220px circle at 30% 0%, rgba(106, 141, 255, 0.18), transparent 60%);
+}
+
+.pcard__icon {
+  width: 46px;
+  height: 46px;
+  border-radius: var(--r-sm);
+  display: grid;
+  place-items: center;
+  background: linear-gradient(160deg, rgba(205, 167, 95, 0.22), rgba(205, 167, 95, 0.04));
+  border: 1px solid rgba(205, 167, 95, 0.25);
+  margin-bottom: var(--sp-sm);
+}
+
+.pcard--blue .pcard__icon {
+  background: linear-gradient(160deg, rgba(106, 141, 255, 0.22), rgba(106, 141, 255, 0.04));
+  border-color: rgba(106, 141, 255, 0.28);
+}
+
+.pcard__icon svg {
+  width: 22px;
+  height: 22px;
+  color: var(--color-gold-bright);
+}
+
+.pcard--blue .pcard__icon svg {
+  color: var(--color-blue-bright);
+}
+
+.pcard__title {
+  font-family: var(--font-display);
+  font-size: var(--fs-h3);
+  color: var(--color-text-primary);
+  margin-bottom: 0.5rem;
+}
+
+.pcard__text {
+  color: var(--color-text-secondary);
+  font-size: var(--fs-small);
+  line-height: 1.6;
+}
+
+.pcard__tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin-top: var(--sp-sm);
+}
+
+.pcard__tag {
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  letter-spacing: 0.02em;
+  padding: 0.3rem 0.55rem;
+  border-radius: var(--r-sm);
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid var(--color-glass-border);
+  color: var(--color-text-tertiary);
+}

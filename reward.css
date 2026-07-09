@@ -1,0 +1,120 @@
+/* ==========================================================================
+   REWARD — voucher / boarding-pass style cards
+   ========================================================================== */
+
+.reward__grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 1.1rem;
+}
+
+.rcard {
+  position: relative;
+  display: grid;
+  grid-template-columns: 1fr auto;
+  align-items: stretch;
+  border-radius: var(--r-lg);
+  background: var(--grad-card);
+  border: 1px solid var(--color-glass-border);
+  overflow: hidden;
+  transition: transform var(--dur-med) var(--ease-out-quart), box-shadow var(--dur-med) var(--ease-out-quart);
+}
+
+.rcard:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--shadow-soft);
+}
+
+.rcard__info {
+  padding: var(--sp-sm);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 0.3rem;
+  min-width: 0;
+}
+
+.rcard__label {
+  font-size: var(--fs-body);
+  font-weight: 700;
+  color: var(--color-text-primary);
+}
+
+.rcard__desc {
+  font-size: var(--fs-small);
+  color: var(--color-text-tertiary);
+}
+
+.rcard__stub {
+  position: relative;
+  width: 132px;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--sp-sm) 0.6rem;
+  background: rgba(255, 255, 255, 0.03);
+}
+
+.rcard__stub::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 0;
+  border-left: 1px dashed var(--color-glass-border-strong);
+}
+
+.rcard__stub .notch-top,
+.rcard__stub .notch-bottom {
+  content: "";
+  position: absolute;
+  left: -8px;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: var(--color-void);
+  border: 1px solid var(--color-glass-border);
+}
+
+.rcard__stub .notch-top {
+  top: -8px;
+}
+
+.rcard__stub .notch-bottom {
+  bottom: -8px;
+}
+
+.rcard__amount {
+  font-family: var(--font-mono);
+  font-size: 1.05rem;
+  font-weight: 500;
+  color: var(--color-gold-bright);
+  text-align: center;
+  letter-spacing: -0.02em;
+  line-height: 1.3;
+}
+
+.rcard__amount .cur {
+  font-size: 0.75em;
+  color: var(--color-text-tertiary);
+  display: block;
+  margin-top: 2px;
+}
+
+.rcard--accent .rcard__amount {
+  color: var(--color-blue-bright);
+}
+
+.rcard--custom .rcard__amount {
+  font-size: 0.95rem;
+  color: var(--color-text-primary);
+}
+
+.reward__note {
+  margin-top: var(--sp-md);
+  font-size: var(--fs-small);
+  color: var(--color-text-tertiary);
+  max-width: 60ch;
+}
